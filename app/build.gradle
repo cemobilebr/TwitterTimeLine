@@ -1,0 +1,98 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+apply plugin: 'com.android.application'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+apply plugin: 'android-apt'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'io.fabric'
+
+def SupportVersion = '23.1.1'
+def AAVersion = '4.0.0'
+def TwitterKitVersion = '1.13.0'
+def RetrofitVersion = '2.0.2'
+def RetrofitGsonVersion = '2.0.2'
+def DaggerVersion = '2.0.2'
+def GsonVersion = "2.6.2"
+def EventBusVersion = '3.0.0'
+def OkHttp3Version = '3.2.0'
+def JacksonVersion = '2.5.4'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "br.com.cemobile.twittertimeline"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+
+    apt {
+        arguments {
+            androidManifestFile variant.outputs[0].processResources.manifestFile
+            resourcePackageName "br.com.cemobile.twittertimeline"
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+
+    compile "com.android.support:appcompat-v7:$SupportVersion"
+    compile "com.android.support:support-annotations:$SupportVersion"
+    compile "com.android.support:recyclerview-v7:$SupportVersion"
+    compile "com.android.support:cardview-v7:$SupportVersion"
+
+    apt "org.androidannotations:androidannotations:$AAVersion"
+    compile "org.androidannotations:androidannotations-api:$AAVersion"
+
+    compile "com.squareup.retrofit2:retrofit:$RetrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$RetrofitGsonVersion"
+    compile "com.squareup.retrofit2:converter-jackson:$RetrofitVersion"
+
+    compile "com.fasterxml.jackson.core:jackson-core:$JacksonVersion"
+    compile "com.fasterxml.jackson.core:jackson-annotations:$JacksonVersion"
+    compile "com.fasterxml.jackson.core:jackson-databind:$JacksonVersion"
+
+    compile "com.google.dagger:dagger:$DaggerVersion"
+    apt "com.google.dagger:dagger-compiler:$DaggerVersion"
+
+    compile "com.google.code.gson:gson:$GsonVersion"
+
+    compile "com.squareup.okhttp3:logging-interceptor:$OkHttp3Version"
+
+    compile "org.greenrobot:eventbus:$EventBusVersion"
+
+    compile("com.twitter.sdk.android:twitter:$TwitterKitVersion@aar") {
+        transitive = true;
+    }
+
+    provided 'javax.annotation:jsr250-api:1.0'
+}

@@ -1,2 +1,2 @@
 # TwitterTimeLine
-Twitter TimeLine App
+Example of Android App using Fabric (Twitter) and Android Annotations.

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="color_preloader_center">#440056</color>
+    <color name="color_preloader_end">#a200bf</color>
+    <color name="color_preloader_start">#440056</color>
+
+    <color name="white">#ffffff</color>
+    <color name="customWhite">#fafafa</color>
+    <color name="darkGray">#cfcfcf</color>
+    <color name="priceLayoutGray">#ececec</color>
+    <color name="black">#000000</color>
+    <color name="gray">#f3f3f3</color>
+    <color name="redOrange">#ff1f00</color>
+    <color name="orange">#ffa600</color>
+</resources>

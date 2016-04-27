@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Twitter Timeline</string>
+    <string name="no_tweets">Não há tweets</string>
+    <string name="login_failed">Falha durante o login!</string>
+    <string name="hashtag">Hashtag:</string>
+    <string name="search">Buscar</string>
+    <string name="hashtag_android">#android</string>
+</resources>

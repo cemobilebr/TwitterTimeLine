@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.com.cemobile.twittertimeline">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity.LoginActivity_"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.TimelineActivity_"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="cdae0b382eaca3eb53501cdc92348d011b84f948" />
+    </application>
+
+    <!-- Permission - Connect to Internet -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Network State permission -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+</manifest>
